@@ -24,7 +24,7 @@ export default function Partners() {
             biopharmaceutical industry partners, together with the Loulou
             Foundation, had formed a pre-competitive consortium to direct a key
             clinical study for the development of disease-modifying therapeutics
-            for CDD. The seven companies are
+            for CDD. The seven companies are 
             <span className="font-semibold text-gray-800">
             Amicus Therapeutics; Biogen Inc.; Elaaj Bio; Immedica Pharma AB; 
             </span>{" "}
