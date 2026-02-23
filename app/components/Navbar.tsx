@@ -10,7 +10,7 @@ export default function Navbar() {
         {/* LEFT — CANDID LOGO */}
         <Link href="#top" className="flex items-center gap-3 group">
           <Image
-            src="/logos/WhatsApp Image 2026-02-20 at 17.15.37.jpeg"
+            src="/logos/candid-logo.jpeg"
             alt="CANDID Study"
             width={350}
             height={260}
