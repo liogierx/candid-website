@@ -153,7 +153,7 @@ export default function MapSection() {
         </p>
 
         {/* COUNTRY BUTTONS */}
-        <div className="mt-10 grid md:grid-cols-2 gap-5">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
           {countries.map((country) => (
             <button
               key={country.name}
@@ -196,7 +196,7 @@ export default function MapSection() {
             center={[50, -25]}
             zoom={3}
             scrollWheelZoom={false}
-            className="h-[400px] w-full"
+            className="h-[300px] sm:h-[350px] md:h-[400px] w-full"
             ref={mapRef}
           >
             <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
@@ -217,8 +217,8 @@ export default function MapSection() {
 
           {/* FLOATING INFO CARD */}
           {activeCountry && (
-            <div className="absolute top-6 right-6 z-[1000]">
-              <div className="bg-white rounded-2xl shadow-2xl p-5 w-[90vw] max-w-[420px] border border-gray-100">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:top-6 md:right-6 md:left-auto md:translate-x-0 z-[1000]">
+              <div className="bg-white rounded-2xl shadow-2xl p-4 md:p-5 w-[90vw] max-w-[420px] border border-gray-100 max-h-[60vh] overflow-y-auto">
                 <div className="flex justify-between items-start">
                   <h4 className="font-semibold text-gray-800">
                     {activeCountry.name}
