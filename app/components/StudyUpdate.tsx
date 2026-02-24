@@ -2,7 +2,7 @@
 
 export default function StudyUpdate() {
   return (
-    <section className="px-20 py-28 bg-gradient-to-b from-white to-[#f8f9ff]">
+    <section className="px-6 md:px-20 py-16 md:py-28 bg-gradient-to-b from-white to-[#f8f9ff]">
       <div className="max-w-5xl mx-auto">
         {/* TITLE */}
         <h2 className="text-4xl font-bold bg-gradient-to-r from-[#f95bf6] via-[#532cf9] to-[#03f7eb] bg-clip-text text-transparent">

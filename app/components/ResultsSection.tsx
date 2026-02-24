@@ -45,12 +45,12 @@ export default function ResultsSection() {
 
         {/* NAVIGATION */}
         <div className="flex justify-center mb-14">
-          <div className="flex flex-wrap justify-center gap-3 bg-white p-3 rounded-2xl shadow-sm border border-gray-200">
+          <div className="flex md:flex-wrap overflow-x-auto md:overflow-visible justify-start md:justify-center gap-3 bg-white p-3 rounded-2xl shadow-sm border border-gray-200">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeTab === tab
                     ? "bg-gradient-to-r from-[#f95bf6] via-[#532cf9] to-[#03f7eb] text-white shadow-md"
                     : "text-gray-600 hover:bg-gray-100"
@@ -64,7 +64,7 @@ export default function ResultsSection() {
 
         {/* NORMAL SECTIONS */}
         {(activeTab === "KEY POINTS" || activeTab === "MEDICAL HISTORY") && (
-          <div className="bg-white rounded-2xl font-grey font-bold shadow-md border border-gray-200 px-8 md:px-12 py-12 max-w-4xl mx-auto transition-all duration-300">
+          <div className="bg-white rounded-2xl font-grey font-bold shadow-md border border-gray-200 px-8 md:px-12 py-8 md:py-12 max-w-4xl mx-auto transition-all duration-300">
             {activeTab === "KEY POINTS" && (
               <div className="space-y-8">
                 {[
@@ -126,28 +126,35 @@ export default function ResultsSection() {
           />
 
           {/* Modal wrapper ajusté */}
-          <div className="fixed inset-0 z-50 flex items-start justify-center px-8 pt-28 pb-12">
-            <div className="relative w-full max-w-6xl h-[80vh] bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden animate-[modalIn_0.35s_cubic-bezier(0.16,1,0.3,1)]">
-              <button
-                onClick={() => setActiveTab("KEY POINTS")}
-                className="absolute top-6 right-6 text-gray-400 hover:text-black text-lg"
-              >
-                ✕
-              </button>
+          <div className="fixed inset-0 z-50 flex items-start justify-center px-4 md:px-8 pt-20 md:pt-28 pb-6 md:pb-12">
+            <div className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden animate-[modalIn_0.35s_cubic-bezier(0.16,1,0.3,1)]">
+            <button
+  onClick={() => setActiveTab("KEY POINTS")}
+  className="absolute top-4 right-4 md:top-6 md:right-6 
+             z-[999] 
+             w-10 h-10 
+             flex items-center justify-center 
+             rounded-full 
+             bg-white shadow-md 
+             text-gray-500 hover:text-black 
+             transition"
+>
+  ✕
+</button>
 
               <div className="grid lg:grid-cols-[1.35fr_0.65fr] h-full">
                 {/* IMAGE SIDE */}
                 <div className="relative bg-gray-50 flex items-center justify-center px-6 py-6">
                   {activeTab === "DEMOGRAPHICS" && (
                     <img
-                      src="/results:age-distribution.png"
+                      src="age-distribution.png"
                       alt="Age distribution"
                       className="max-h-[90%] max-w-full object-contain"
                     />
                   )}
 
 {activeTab === "EPILEPSY" && (
-  <div className="flex items-center justify-center gap-8 w-full h-full px-6 py-6">
+  <div className="flex flex-col lg:flex-row items-center justify-center gap-6 w-full h-full px-4 md:px-6 py-6">
     <Image
       src="/epilepsy-bubble.png"
       alt="Epilepsy types"
@@ -178,7 +185,7 @@ export default function ResultsSection() {
                 </div>
 
                 {/* TEXT SIDE */}
-                <div className="px-14 py-14 overflow-y-auto flex items-center">
+                <div className="px-6 md:px-14 py-8 md:py-14 overflow-y-auto flex items-start md:items-center">
                   <div className="w-full space-y-6">
                     {activeTab === "DEMOGRAPHICS" && (
                       <ContentBlock
@@ -267,13 +274,13 @@ function PillTitle({ children }: { children: React.ReactNode }) {
       <div
         className="
           inline-block
-          px-4 py-2.5
+          px-4 md:px-6 py-2.5
           rounded-[20px]
-          border-[6px]
+          border-[4px] md:border-[6px]
           border-[#6B3CC9]
           bg-[#B7D431]
           text-white
-          text-3xl
+          text-3xl md:text-3xl
           font-bold
           tracking-[0.15em]
           uppercase

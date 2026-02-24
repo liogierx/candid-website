@@ -13,7 +13,7 @@ export default function StudyUpdate() {
 
   return (
     <main
-      className={`min-h-screen bg-gradient-to-b from-white to-[#f8f9ff] px-6 md:px-20 py-28 transition-all duration-700 ease-out ${
+      className={`min-h-screen bg-gradient-to-b from-white to-[#f8f9ff] px-6 md:px-20 py-16 d:py-28 transition-all duration-700 ease-out ${
         mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >

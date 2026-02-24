@@ -142,7 +142,7 @@ export default function MapSection() {
   const mapKey = useMemo(() => "candid-map", []);
 
   return (
-    <section id="location" className="px-20 py-28 bg-white scroll-mt-28">
+    <section id="location" className="px-6 md:px-20 py-16 md:py-28 bg-white scroll-mt-28">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold bg-gradient-to-r from-[#f95bf6] via-[#532cf9] to-[#03f7eb] bg-clip-text text-transparent">
           Where are our study sites located?
@@ -218,7 +218,7 @@ export default function MapSection() {
           {/* FLOATING INFO CARD */}
           {activeCountry && (
             <div className="absolute top-6 right-6 z-[1000]">
-              <div className="bg-white rounded-2xl shadow-2xl p-5 w-[380px] border border-gray-100">
+              <div className="bg-white rounded-2xl shadow-2xl p-5 w-[90vw] max-w-[420px] border border-gray-100">
                 <div className="flex justify-between items-start">
                   <h4 className="font-semibold text-gray-800">
                     {activeCountry.name}

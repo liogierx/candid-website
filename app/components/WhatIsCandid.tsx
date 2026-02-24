@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function WhatIsCandid() {
   return (
-    <section id="what" className="px-20 py-28 bg-white scroll-mt-28">
+    <section id="what" className="px-6 md:px-20 py-16 md:py-28 bg-white scroll-mt-28">
       <div className="max-w-6xl mx-auto">
         {/* TITLE */}
         <h2 className="text-4xl font-bold bg-gradient-to-r from-[#f95bf6] via-[#532cf9] to-[#03f7eb] bg-clip-text text-transparent">
@@ -63,7 +63,7 @@ export default function WhatIsCandid() {
                 alt="Timelines"
                 width={800}
                 height={500}
-                className="w-1/2 h-auto rounded-xl mx-auto"
+                className="w-[90%] max-w-[500px] h-auto"
               />
             </div>
 

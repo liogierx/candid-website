@@ -5,7 +5,7 @@ export default function Partners() {
   return (
     <section
       id="partners"
-      className="px-20 py-28 bg-gradient-to-r from-[#f95bf608] via-[#532cf908] to-[#03f7eb08] scroll-mt-28"
+      className="px-6 md:px-20 py-16 md:py-28 bg-gradient-to-r from-[#f95bf608] via-[#532cf908] to-[#03f7eb08] scroll-mt-28"
     >
       <div className="max-w-6xl mx-auto">
         {/* TITLE */}
