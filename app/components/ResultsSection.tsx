@@ -208,7 +208,7 @@ export default function ResultsSection() {
                             h: "6",
                             t: "participants seizure-free at enrollment.",
                           },
-                          { h: "33%", t: "Major motor seizures, epileptic spams (28%), and focal seizures (10%)." },
+                          { h: "33%", t: "Major motor seizures, epileptic spasms (28%), and focal seizures (10%)." },
                           { h: "Seizure patterns varied by age", t: " with infantile spasms predominant in younger children." },
                         ]}
                       />
