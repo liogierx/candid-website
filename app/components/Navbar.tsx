@@ -18,7 +18,7 @@ export default function Navbar() {
   alt="CANDID Study"
   width={300}
   height={200}
-  className="object-contain w-[160px] md:w-[240px] lg:w-[360px]"
+  className="object-contain w-[250px] md:w-[240px] lg:w-[360px]"
 />
 </Link>
 
@@ -43,11 +43,11 @@ export default function Navbar() {
     className="flex items-center group"
   >
     <Image
-      src="/logos/loulou-logo.jpg"
+      src="/logos/loulou-logo.png"
       alt="Loulou Foundation"
       width={80}
       height={50}
-      className="object-contain w-[150px] md:w-[150px] lg:w-[150px]"
+      className="object-contain w-[100px] md:w-[150px] lg:w-[140px]"
     />
   </a>
 
