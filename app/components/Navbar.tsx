@@ -14,12 +14,12 @@ export default function Navbar() {
 {/* LEFT — CANDID */}
 <Link href="#top" className="flex items-center group">
   <Image
-    src="/logos/candid-logo.jpeg"
-    alt="CANDID Study"
-    width={150}
-    height={90}
-    className="object-contain md:w-[200px]"
-  />
+  src="/logos/candid-logo.png"
+  alt="CANDID Study"
+  width={300}
+  height={200}
+  className="object-contain w-[160px] md:w-[240px] lg:w-[360px]"
+/>
 </Link>
 
 {/* CENTER — DESKTOP NAV */}
@@ -47,7 +47,7 @@ export default function Navbar() {
       alt="Loulou Foundation"
       width={80}
       height={50}
-      className="object-contain md:w-[120px]"
+      className="object-contain w-[150px] md:w-[150px] lg:w-[150px]"
     />
   </a>
 
