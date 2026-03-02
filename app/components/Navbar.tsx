@@ -43,12 +43,13 @@ export default function Navbar() {
     className="flex items-center group"
   >
     <Image
-      src="/logos/loulou-logo.png"
-      alt="Loulou Foundation"
-      width={80}
-      height={50}
-      className="object-contain w-[100px] md:w-[150px] lg:w-[140px]"
-    />
+  src="/logos/loulou-logo.png"
+  alt="Loulou Foundation"
+  width={400}
+  height={250}
+  className="object-contain w-[110px] md:w-[170px] lg:w-[190px]"
+  priority
+/>
   </a>
 
   {/* MOBILE MENU BUTTON */}
