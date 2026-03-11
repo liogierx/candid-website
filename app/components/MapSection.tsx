@@ -287,10 +287,7 @@ export default function MapSection() {
                     key={country.name}
                     position={country.position}
                     eventHandlers={{
-                      click: () =>
-                        setActiveCountry(
-                          activeCountry?.name === country.name ? null : country
-                        ),
+                      click: () => setActiveCountry(country),
                     }}
                   />
                 ))}
