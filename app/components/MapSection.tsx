@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Map as LeafletMap } from "leaflet";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -29,15 +29,39 @@ const countries = [
     sites: 8,
     position: [37.0902, -95.7129] as [number, number],
     zoom: 5,
-    cities: [
-      "UCLA Mattel Children's Hospital, Dr Rajaraman",
-      "Children's Hospital Colorado, Dr Demarest",
-      "Boston Children's Hospital, Dr Olson",
-      "New York University, Dr Price",
-      "Cincinnati Children's Hospital Medical Center, Dr Standridge",
-      "The Cleveland Clinic, Dr Pestana-Knight",
-      "Children's Hospital of Philadelphia, Dr Marsh",
-      "Baylor College of Medicine, Dr Suter",
+    siteLocations: [
+      {
+        name: "UCLA Mattel Children's Hospital, Dr Rajaraman",
+        position: [34.0668, -118.4452] as [number, number],
+      },
+      {
+        name: "Children's Hospital Colorado, Dr Demarest",
+        position: [39.7424, -104.8375] as [number, number],
+      },
+      {
+        name: "Boston Children's Hospital, Dr Olson",
+        position: [42.3368, -71.1053] as [number, number],
+      },
+      {
+        name: "New York University, Dr Price",
+        position: [40.7420, -73.9748] as [number, number],
+      },
+      {
+        name: "Cincinnati Children's Hospital Medical Center, Dr Standridge",
+        position: [39.1413, -84.5018] as [number, number],
+      },
+      {
+        name: "The Cleveland Clinic, Dr Pestana-Knight",
+        position: [41.5036, -81.6200] as [number, number],
+      },
+      {
+        name: "Children's Hospital of Philadelphia, Dr Marsh",
+        position: [39.9496, -75.1936] as [number, number],
+      },
+      {
+        name: "Baylor College of Medicine, Dr Suter",
+        position: [29.7092, -95.3982] as [number, number],
+      },
     ],
   },
   {
@@ -46,11 +70,23 @@ const countries = [
     sites: 4,
     position: [41.8719, 12.5674] as [number, number],
     zoom: 5,
-    cities: [
-      "Azienda Ospedaliero-Universitaria Meyer, Dr Guerrini",
-      "Fondazione Policlinico Universitario A Gemelli, Dr Battaglia",
-      "Ospedale Pediatrico Bambino Gesù, Dr Specchio",
-      "Azienda Ospedaliera Universitaria Integrata di Verona, Dr Darra",
+    siteLocations: [
+      {
+        name: "Azienda Ospedaliero-Universitaria Meyer, Dr Guerrini",
+        position: [43.7970, 11.2532] as [number, number],
+      },
+      {
+        name: "Fondazione Policlinico Universitario A Gemelli, Dr Battaglia",
+        position: [41.9334, 12.4292] as [number, number],
+      },
+      {
+        name: "Ospedale Pediatrico Bambino Gesù, Dr Specchio",
+        position: [41.9002, 12.4665] as [number, number],
+      },
+      {
+        name: "Azienda Ospedaliera Universitaria Integrata di Verona, Dr Darra",
+        position: [45.4036, 10.9990] as [number, number],
+      },
     ],
   },
   {
@@ -59,9 +95,15 @@ const countries = [
     sites: 2,
     position: [56.1304, -106.3468] as [number, number],
     zoom: 3,
-    cities: [
-      "Alberta Children's Hospital, Dr Appendino",
-      "The Hospital for Sick Children, Dr Donner",
+    siteLocations: [
+      {
+        name: "Alberta Children's Hospital, Dr Appendino",
+        position: [51.0756, -114.1466] as [number, number],
+      },
+      {
+        name: "The Hospital for Sick Children, Dr Donner",
+        position: [43.6575, -79.3888] as [number, number],
+      },
     ],
   },
   {
@@ -70,10 +112,19 @@ const countries = [
     sites: 3,
     position: [40.4637, -3.7492] as [number, number],
     zoom: 5,
-    cities: [
-      "Hospital Infantil Universitario Niño Jesús, Dr Alguacil",
-      "Ruber Internacional Hospital, Dr Gil-Nagel",
-      "Hospital Universitario Vithas Madrid, Dr Aledo-Serrano",
+    siteLocations: [
+      {
+        name: "Hospital Infantil Universitario Niño Jesús, Dr Alguacil",
+        position: [40.4213, -3.6779] as [number, number],
+      },
+      {
+        name: "Ruber Internacional Hospital, Dr Gil-Nagel",
+        position: [40.4583, -3.6852] as [number, number],
+      },
+      {
+        name: "Hospital Universitario Vithas Madrid, Dr Aledo-Serrano",
+        position: [40.4399, -3.6944] as [number, number],
+      },
     ],
   },
   {
@@ -82,7 +133,12 @@ const countries = [
     sites: 1,
     position: [46.2276, 2.2137] as [number, number],
     zoom: 5,
-    cities: ["Hôpital Necker-Enfants Malades, Dr Bahi-Buisson"],
+    siteLocations: [
+      {
+        name: "Hôpital Necker-Enfants Malades, Dr Bahi-Buisson",
+        position: [48.8425, 2.3150] as [number, number],
+      },
+    ],
   },
   {
     name: "UAE",
@@ -90,7 +146,12 @@ const countries = [
     sites: 1,
     position: [23.4241, 53.8478] as [number, number],
     zoom: 6,
-    cities: ["Mediclinic / High Hopes, Dr Philip"],
+    siteLocations: [
+      {
+        name: "Mediclinic / High Hopes, Dr Philip",
+        position: [25.2285, 55.3273] as [number, number],
+      },
+    ],
   },
   {
     name: "Germany",
@@ -98,9 +159,15 @@ const countries = [
     sites: 2,
     position: [51.1657, 10.4515] as [number, number],
     zoom: 5,
-    cities: [
-      "DRK Berlin - Epilepsiezentrum, Dr Panzer",
-      "Schön Klinik Vogtareuth, Dr Kluger",
+    siteLocations: [
+      {
+        name: "DRK Berlin - Epilepsiezentrum, Dr Panzer",
+        position: [52.5034, 13.3311] as [number, number],
+      },
+      {
+        name: "Schön Klinik Vogtareuth, Dr Kluger",
+        position: [47.9465, 12.1811] as [number, number],
+      },
     ],
   },
 ];
@@ -117,7 +184,7 @@ export default function MapSection() {
     (async () => {
       const L = await import("leaflet");
 
-      // @ts-ignore
+      // @ts-expect-error Leaflet exposes this on the prototype at runtime.
       delete L.Icon.Default.prototype._getIconUrl;
 
       L.Icon.Default.mergeOptions({
@@ -128,15 +195,25 @@ export default function MapSection() {
     })();
   }, []);
 
-  // FlyTo animation
+  // Fit the map to all sites for the selected country.
   useEffect(() => {
     if (!mapRef.current || !activeCountry) return;
 
-    mapRef.current.flyTo(
-      activeCountry.position,
-      activeCountry.zoom,
-      { duration: 1.2 }
-    );
+    const sitePositions = activeCountry.siteLocations.map((site) => site.position);
+
+    if (sitePositions.length === 1) {
+      mapRef.current.flyTo(sitePositions[0], Math.max(activeCountry.zoom, 8), {
+        duration: 1.2,
+      });
+      return;
+    }
+
+    mapRef.current.fitBounds(sitePositions, {
+      padding: [40, 40],
+      maxZoom: 8,
+      animate: true,
+      duration: 1.2,
+    });
   }, [activeCountry]);
 
   const mapKey = useMemo(() => "candid-map", []);
@@ -201,18 +278,22 @@ export default function MapSection() {
           >
             <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
-            {countries.map((country) => (
-              <Marker
-                key={country.name}
-                position={country.position}
-                eventHandlers={{
-                  click: () =>
-                    setActiveCountry(
-                      activeCountry?.name === country.name ? null : country
-                    ),
-                }}
-              />
-            ))}
+            {activeCountry
+              ? activeCountry.siteLocations.map((site) => (
+                  <Marker key={site.name} position={site.position} />
+                ))
+              : countries.map((country) => (
+                  <Marker
+                    key={country.name}
+                    position={country.position}
+                    eventHandlers={{
+                      click: () =>
+                        setActiveCountry(
+                          activeCountry?.name === country.name ? null : country
+                        ),
+                    }}
+                  />
+                ))}
           </MapContainer>
 
           {/* FLOATING INFO CARD */}
@@ -232,8 +313,8 @@ export default function MapSection() {
                 </div>
 
                 <ul className="mt-3 text-sm text-gray-600 space-y-1">
-                  {activeCountry.cities.map((city) => (
-                    <li key={city}>• {city}</li>
+                  {activeCountry.siteLocations.map((site) => (
+                    <li key={site.name}>• {site.name}</li>
                   ))}
                 </ul>
               </div>
